@@ -105,6 +105,93 @@
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
+
+        .game-preview {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .preview-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+
+        .mock-ui {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .circulet {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .circulet:nth-child(1) { 
+            background: #3498db; 
+            border-color: #95a5a6; 
+            animation-delay: 0s;
+        }
+        .circulet:nth-child(2) { 
+            background: #2ecc71; 
+            border-color: #3498db; 
+            animation-delay: 0.5s;
+        }
+        .circulet:nth-child(3) { 
+            background: #9b59b6; 
+            border-color: #2ecc71; 
+            animation-delay: 1s;
+        }
+        .circulet:nth-child(4) { 
+            background: #f1c40f; 
+            border-color: #9b59b6; 
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stats-preview {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -115,6 +202,34 @@
             A Blooket-inspired educational gaming platform where players collect circular "circulets" instead of square blooks! 
             Build your collection, trade with friends, and climb the leaderboards.
         </p>
+        
+        <div class="game-preview">
+            <h3 class="preview-title">🎮 Game Preview</h3>
+            <div class="mock-ui">
+                <div class="circulet">BLUE</div>
+                <div class="circulet">GREEN</div>
+                <div class="circulet">EPIC</div>
+                <div class="circulet">GOLD</div>
+            </div>
+            <div class="stats-preview">
+                <div class="stat">
+                    <div class="stat-value">🪙 500</div>
+                    <div class="stat-label">Tokens</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">⭕ 12</div>
+                    <div class="stat-label">Circulets</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">👥 3</div>
+                    <div class="stat-label">Friends</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">🏆 #47</div>
+                    <div class="stat-label">Rank</div>
+                </div>
+            </div>
+        </div>
         
         <div class="features">
             <div class="feature">
@@ -142,7 +257,7 @@
         <div class="status">🚀 Full React App Coming Soon!</div>
         
         <a href="https://github.com/helloworld321sup/circulet" class="github-link" target="_blank">
-            📂 View on GitHub
+            📂 View Source Code on GitHub
         </a>
     </div>
 </body>
