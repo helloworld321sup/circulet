@@ -1,0 +1,55 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="orangeGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="50%" stop-color="#FFA500"/>
+      <stop offset="100%" stop-color="#FF8C00"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#00000040"/>
+    </filter>
+  </defs>
+  <!-- Orange shadow -->
+  <ellipse cx="62" cy="100" rx="30" ry="8" fill="#00000025"/>
+  <!-- Orange shape with gradient -->
+  <circle cx="60" cy="60" r="48" fill="url(#orangeGradient)" filter="url(#shadow)"/>
+  <!-- Orange highlight -->
+  <ellipse cx="45" cy="40" rx="15" ry="20" fill="#FFD700" opacity="0.4"/>
+  <ellipse cx="42" cy="35" rx="8" ry="12" fill="#FFFF00" opacity="0.3"/>
+  <!-- Orange texture dimples (detailed) -->
+  <circle cx="42" cy="42" r="3" fill="#FF8C00"/>
+  <circle cx="41" cy="41" r="1.5" fill="#E6730A"/>
+  
+  <circle cx="78" cy="42" r="3" fill="#FF8C00"/>
+  <circle cx="77" cy="41" r="1.5" fill="#E6730A"/>
+  
+  <circle cx="42" cy="78" r="3" fill="#FF8C00"/>
+  <circle cx="41" cy="77" r="1.5" fill="#E6730A"/>
+  
+  <circle cx="78" cy="78" r="3" fill="#FF8C00"/>
+  <circle cx="77" cy="77" r="1.5" fill="#E6730A"/>
+  
+  <!-- Smaller dimples -->
+  <circle cx="60" cy="30" r="2" fill="#FF8C00"/>
+  <circle cx="30" cy="60" r="2" fill="#FF8C00"/>
+  <circle cx="90" cy="60" r="2" fill="#FF8C00"/>
+  <circle cx="60" cy="90" r="2" fill="#FF8C00"/>
+  
+  <!-- Tiny texture spots -->
+  <circle cx="50" cy="55" r="1.5" fill="#FF8C00"/>
+  <circle cx="70" cy="65" r="1.5" fill="#FF8C00"/>
+  <circle cx="55" cy="75" r="1.5" fill="#FF8C00"/>
+  <circle cx="65" cy="45" r="1.5" fill="#FF8C00"/>
+  <circle cx="35" cy="45" r="1" fill="#FF8C00"/>
+  <circle cx="85" cy="75" r="1" fill="#FF8C00"/>
+  
+  <!-- Orange peel texture lines -->
+  <path d="M 25 50 Q 35 45 45 50 Q 55 55 65 50" stroke="#E6730A" stroke-width="1" opacity="0.4" fill="none"/>
+  <path d="M 30 70 Q 40 65 50 70 Q 60 75 70 70" stroke="#E6730A" stroke-width="1" opacity="0.4" fill="none"/>
+  <path d="M 50 25 Q 60 30 70 25 Q 80 20 90 25" stroke="#E6730A" stroke-width="1" opacity="0.4" fill="none"/>
+  
+  <!-- Orange stem area -->
+  <circle cx="60" cy="15" r="4" fill="#228B22"/>
+  <circle cx="60" cy="15" r="2" fill="#32CD32"/>
+  <rect x="59" y="12" width="2" height="6" fill="#8B4513"/>
+</svg>

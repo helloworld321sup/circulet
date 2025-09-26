@@ -1,0 +1,51 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="rainbowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="16.66%" stop-color="#FF8E53"/>
+      <stop offset="33.33%" stop-color="#FFD93D"/>
+      <stop offset="50%" stop-color="#4ECDC4"/>
+      <stop offset="66.66%" stop-color="#45B7D1"/>
+      <stop offset="83.33%" stop-color="#96CEB4"/>
+      <stop offset="100%" stop-color="#FFEAA7"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="sparkle">
+      <feGaussianBlur stdDeviation="1" result="sparkleBlur"/>
+      <feMerge> 
+        <feMergeNode in="sparkleBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Face with rainbow gradient and glow -->
+  <circle cx="60" cy="60" r="50" fill="url(#rainbowGradient)" filter="url(#glow)"/>
+  <!-- Rainbow shimmer overlay -->
+  <circle cx="60" cy="60" r="45" fill="none" stroke="url(#rainbowGradient)" stroke-width="8" opacity="0.6"/>
+  <!-- Sparkle eyes -->
+  <g fill="#fff" filter="url(#sparkle)">
+    <polygon points="45,30 48,40 58,40 50,47 53,57 45,50 37,57 40,47 32,40 42,40"/>
+    <polygon points="75,30 78,40 88,40 80,47 83,57 75,50 67,57 70,47 62,40 72,40"/>
+    <!-- Eye highlights -->
+    <circle cx="45" cy="45" r="2" fill="#fff"/>
+    <circle cx="75" cy="45" r="2" fill="#fff"/>
+  </g>
+  <!-- Floating sparkles around face -->
+  <g fill="#fff" opacity="0.8">
+    <polygon points="25,35 26,38 29,38 27,40 28,43 25,41 22,43 23,40 21,38 24,38"/>
+    <polygon points="95,25 96,28 99,28 97,30 98,33 95,31 92,33 93,30 91,28 94,28"/>
+    <polygon points="20,75 21,78 24,78 22,80 23,83 20,81 17,83 18,80 16,78 19,78"/>
+    <polygon points="100,70 101,73 104,73 102,75 103,78 100,76 97,78 98,75 96,73 99,73"/>
+    <polygon points="35,15 36,18 39,18 37,20 38,23 35,21 32,23 33,20 31,18 34,18"/>
+    <polygon points="85,95 86,98 89,98 87,100 88,103 85,101 82,103 83,100 81,98 84,98"/>
+  </g>
+  <!-- Rainbow smile -->
+  <path d="M 35 70 Q 60 100 85 70" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M 37 72 Q 60 96 83 72" stroke="url(#rainbowGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

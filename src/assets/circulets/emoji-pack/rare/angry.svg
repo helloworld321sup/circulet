@@ -1,0 +1,48 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="angryFaceGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FF8A8A"/>
+      <stop offset="70%" stop-color="#FF6B6B"/>
+      <stop offset="100%" stop-color="#E53E3E"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000030"/>
+    </filter>
+    <filter id="angryGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Angry red face with glow -->
+  <circle cx="60" cy="60" r="50" fill="url(#angryFaceGradient)" filter="url(#shadow)"/>
+  <!-- Angry heat waves -->
+  <path d="M 25 30 Q 30 25 35 30 Q 40 35 45 30" stroke="#FF4500" stroke-width="2" opacity="0.6" fill="none"/>
+  <path d="M 75 30 Q 80 25 85 30 Q 90 35 95 30" stroke="#FF4500" stroke-width="2" opacity="0.6" fill="none"/>
+  <!-- Angry furrowed eyebrows -->
+  <path d="M 30 32 L 55 42" stroke="#8B0000" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 90 32 L 65 42" stroke="#8B0000" stroke-width="5" stroke-linecap="round"/>
+  <!-- Angry eyebrow shadows -->
+  <path d="M 32 34 L 53 43" stroke="#660000" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 88 34 L 67 43" stroke="#660000" stroke-width="3" stroke-linecap="round"/>
+  <!-- Intense angry eyes -->
+  <ellipse cx="45" cy="50" rx="3" ry="5" fill="#8B0000"/>
+  <circle cx="46" cy="49" r="0.5" fill="#FF0000"/>
+  <ellipse cx="75" cy="50" rx="3" ry="5" fill="#8B0000"/>
+  <circle cx="76" cy="49" r="0.5" fill="#FF0000"/>
+  <!-- Gritted teeth mouth -->
+  <path d="M 45 80 Q 60 70 75 80" stroke="#8B0000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Visible gritted teeth -->
+  <rect x="52" y="75" width="3" height="4" fill="#fff" rx="0.5"/>
+  <rect x="56" y="75" width="3" height="4" fill="#fff" rx="0.5"/>
+  <rect x="60" y="75" width="3" height="4" fill="#fff" rx="0.5"/>
+  <rect x="64" y="75" width="3" height="4" fill="#fff" rx="0.5"/>
+  <!-- Anger veins -->
+  <path d="M 25 50 Q 30 45 35 50" stroke="#8B0000" stroke-width="2" opacity="0.7" fill="none"/>
+  <path d="M 85 50 Q 90 45 95 50" stroke="#8B0000" stroke-width="2" opacity="0.7" fill="none"/>
+  <!-- Steam from nostrils -->
+  <ellipse cx="55" cy="62" rx="1" ry="3" fill="#DCDCDC" opacity="0.8"/>
+  <ellipse cx="65" cy="62" rx="1" ry="3" fill="#DCDCDC" opacity="0.8"/>
+</svg>

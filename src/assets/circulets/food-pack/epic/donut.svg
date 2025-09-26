@@ -1,0 +1,67 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="donutGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#DEB887"/>
+      <stop offset="70%" stop-color="#D2691E"/>
+      <stop offset="100%" stop-color="#A0522D"/>
+    </radialGradient>
+    <radialGradient id="frostingGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFB6C1"/>
+      <stop offset="70%" stop-color="#FF69B4"/>
+      <stop offset="100%" stop-color="#FF1493"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#00000040"/>
+    </filter>
+  </defs>
+  <!-- Donut shadow -->
+  <ellipse cx="62" cy="100" rx="35" ry="10" fill="#00000030"/>
+  <!-- Donut base with gradient -->
+  <circle cx="60" cy="60" r="45" fill="url(#donutGradient)" filter="url(#shadow)"/>
+  <!-- Donut hole -->
+  <circle cx="60" cy="60" r="18" fill="transparent"/>
+  <!-- Donut texture -->
+  <circle cx="60" cy="60" r="42" fill="none" stroke="#A0522D" stroke-width="2" opacity="0.3"/>
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#8B4513" stroke-width="1" opacity="0.2"/>
+  <!-- Frosting with gradient -->
+  <circle cx="60" cy="60" r="45" fill="url(#frostingGradient)" opacity="0.8"/>
+  <circle cx="60" cy="60" r="18" fill="transparent"/>
+  <!-- Frosting drips -->
+  <ellipse cx="35" cy="70" rx="6" ry="12" fill="url(#frostingGradient)" opacity="0.9"/>
+  <ellipse cx="85" cy="65" rx="5" ry="10" fill="url(#frostingGradient)" opacity="0.9"/>
+  <ellipse cx="60" cy="105" rx="4" ry="8" fill="url(#frostingGradient)" opacity="0.8"/>
+  <ellipse cx="25" cy="45" rx="4" ry="9" fill="url(#frostingGradient)" opacity="0.8"/>
+  <!-- Colorful sprinkles with shadows -->
+  <g>
+    <rect x="45" y="38" width="10" height="3" fill="#00FF00" transform="rotate(30 50 39.5)"/>
+    <rect x="44" y="39" width="10" height="1" fill="#00CC00" transform="rotate(30 49 39.5)"/>
+  </g>
+  <g>
+    <rect x="72" y="43" width="10" height="3" fill="#FF0000" transform="rotate(-20 77 44.5)"/>
+    <rect x="71" y="44" width="10" height="1" fill="#CC0000" transform="rotate(-20 76 44.5)"/>
+  </g>
+  <g>
+    <rect x="38" y="72" width="10" height="3" fill="#0000FF" transform="rotate(60 43 73.5)"/>
+    <rect x="37" y="73" width="10" height="1" fill="#0000CC" transform="rotate(60 42 73.5)"/>
+  </g>
+  <g>
+    <rect x="77" y="77" width="10" height="3" fill="#FFFF00" transform="rotate(-45 82 78.5)"/>
+    <rect x="76" y="78" width="10" height="1" fill="#CCCC00" transform="rotate(-45 81 78.5)"/>
+  </g>
+  <g>
+    <rect x="53" y="33" width="10" height="3" fill="#FF8C00" transform="rotate(10 58 34.5)"/>
+    <rect x="52" y="34" width="10" height="1" fill="#E6730A" transform="rotate(10 57 34.5)"/>
+  </g>
+  <g>
+    <rect x="33" y="53" width="10" height="3" fill="#9400D3" transform="rotate(-30 38 54.5)"/>
+    <rect x="32" y="54" width="10" height="1" fill="#7A00B8" transform="rotate(-30 37 54.5)"/>
+  </g>
+  <g>
+    <rect x="65" y="85" width="8" height="3" fill="#00FFFF" transform="rotate(75 69 86.5)"/>
+    <rect x="64" y="86" width="8" height="1" fill="#00CCCC" transform="rotate(75 68 86.5)"/>
+  </g>
+  <g>
+    <rect x="85" y="65" width="8" height="3" fill="#FF1493" transform="rotate(-60 89 66.5)"/>
+    <rect x="84" y="66" width="8" height="1" fill="#CC1177" transform="rotate(-60 88 66.5)"/>
+  </g>
+</svg>

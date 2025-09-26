@@ -1,0 +1,17 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Face -->
+  <circle cx="60" cy="60" r="50" fill="#FFB6C1"/>
+  <!-- Left heart eye -->
+  <g transform="translate(42, 45)">
+    <path d="M 0 0 C -3 -5, -8 -5, -8 0 C -8 5, 0 8, 0 15 C 0 8, 8 5, 8 0 C 8 -5, 3 -5, 0 0 Z" fill="#FF1493"/>
+  </g>
+  <!-- Right heart eye -->
+  <g transform="translate(78, 45)">
+    <path d="M 0 0 C -3 -5, -8 -5, -8 0 C -8 5, 0 8, 0 15 C 0 8, 8 5, 8 0 C 8 -5, 3 -5, 0 0 Z" fill="#FF1493"/>
+  </g>
+  <!-- Big loving smile -->
+  <path d="M 35 75 Q 60 95 85 75" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <circle cx="30" cy="65" r="6" fill="#FF69B4" opacity="0.4"/>
+  <circle cx="90" cy="65" r="6" fill="#FF69B4" opacity="0.4"/>
+</svg>

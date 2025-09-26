@@ -1,0 +1,32 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="faceGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFE55C"/>
+      <stop offset="70%" stop-color="#FFD93D"/>
+      <stop offset="100%" stop-color="#F1C40F"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000030"/>
+    </filter>
+  </defs>
+  <!-- Face with gradient and shadow -->
+  <circle cx="60" cy="60" r="50" fill="url(#faceGradient)" filter="url(#shadow)"/>
+  <!-- Face highlight -->
+  <ellipse cx="45" cy="40" rx="12" ry="18" fill="#FFEB3B" opacity="0.4"/>
+  <!-- Left eye -->
+  <ellipse cx="45" cy="45" rx="4" ry="6" fill="#000"/>
+  <circle cx="46" cy="43" r="1" fill="#fff"/>
+  <!-- Right eye -->
+  <ellipse cx="75" cy="45" rx="4" ry="6" fill="#000"/>
+  <circle cx="76" cy="43" r="1" fill="#fff"/>
+  <!-- Cheeks -->
+  <circle cx="30" cy="65" r="6" fill="#FFB6C1" opacity="0.6"/>
+  <circle cx="90" cy="65" r="6" fill="#FFB6C1" opacity="0.6"/>
+  <!-- Smile with depth -->
+  <path d="M 40 70 Q 60 90 80 70" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 42 72 Q 60 88 78 72" stroke="#A0522D" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Teeth -->
+  <rect x="52" y="75" width="4" height="6" fill="#fff" rx="1"/>
+  <rect x="58" y="76" width="4" height="6" fill="#fff" rx="1"/>
+  <rect x="64" y="75" width="4" height="6" fill="#fff" rx="1"/>
+</svg>

@@ -1,0 +1,37 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bananaGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFF700"/>
+      <stop offset="50%" stop-color="#FFEB3B"/>
+      <stop offset="100%" stop-color="#F9A825"/>
+    </radialGradient>
+    <linearGradient id="bananaHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFACD"/>
+      <stop offset="100%" stop-color="#FFEB3B"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#00000040"/>
+    </filter>
+  </defs>
+  <!-- Banana shadow -->
+  <ellipse cx="65" cy="105" rx="25" ry="6" fill="#00000020" transform="rotate(30 65 105)"/>
+  <!-- Banana shape with gradient -->
+  <path d="M 35 25 C 50 20, 75 25, 90 40 C 95 50, 92 65, 85 80 C 75 95, 55 100, 40 95 C 25 90, 20 75, 25 60 C 30 45, 32 35, 35 25 Z" fill="url(#bananaGradient)" filter="url(#shadow)"/>
+  <!-- Banana highlight -->
+  <path d="M 40 30 C 50 28, 70 32, 82 45 C 85 52, 83 62, 78 72 C 72 82, 58 85, 48 82 C 38 79, 35 70, 38 60 C 40 50, 41 40, 40 30 Z" fill="url(#bananaHighlight)" opacity="0.6"/>
+  <!-- Banana tip -->
+  <ellipse cx="88" cy="42" rx="6" ry="10" fill="#E6CC00" transform="rotate(30 88 42)"/>
+  <ellipse cx="86" cy="40" rx="3" ry="6" fill="#F9A825" transform="rotate(30 86 40)"/>
+  <!-- Banana lines/ridges -->
+  <path d="M 40 30 C 48 35, 58 50, 65 70 C 68 78, 70 85, 72 90" stroke="#E6CC00" stroke-width="2" fill="none"/>
+  <path d="M 45 28 C 53 33, 63 48, 70 68 C 73 76, 75 83, 77 88" stroke="#E6CC00" stroke-width="2" fill="none"/>
+  <path d="M 50 27 C 58 32, 68 47, 75 67 C 78 75, 80 82, 82 87" stroke="#E6CC00" stroke-width="2" fill="none"/>
+  <path d="M 55 28 C 63 33, 73 48, 80 68 C 82 75, 84 82, 85 87" stroke="#E6CC00" stroke-width="1.5" fill="none"/>
+  <!-- Banana stem -->
+  <ellipse cx="32" cy="28" rx="4" ry="8" fill="#8B7D00" transform="rotate(-20 32 28)"/>
+  <ellipse cx="30" cy="26" rx="2" ry="5" fill="#A0522D" transform="rotate(-20 30 26)"/>
+  <!-- Brown spots -->
+  <ellipse cx="55" cy="60" rx="3" ry="2" fill="#8B4513" opacity="0.6" transform="rotate(20 55 60)"/>
+  <ellipse cx="70" cy="75" rx="2" ry="1.5" fill="#8B4513" opacity="0.5" transform="rotate(-10 70 75)"/>
+  <circle cx="48" cy="80" r="1.5" fill="#8B4513" opacity="0.4"/>
+</svg>

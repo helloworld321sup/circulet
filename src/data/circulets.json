@@ -1,0 +1,191 @@
+{
+  "packs": {
+    "emoji-pack": {
+      "name": "Emoji Pack",
+      "description": "Express yourself with these emotional circulets!",
+      "cost": 50,
+      "circulets": {
+        "common": [
+          {
+            "id": "happy",
+            "name": "Happy Face",
+            "rarity": "common",
+            "description": "A cheerful smile to brighten your day!",
+            "image": "/src/assets/circulets/emoji-pack/common/happy.svg"
+          },
+          {
+            "id": "sad",
+            "name": "Sad Face",
+            "rarity": "common", 
+            "description": "Sometimes we all need a good cry.",
+            "image": "/src/assets/circulets/emoji-pack/common/sad.svg"
+          },
+          {
+            "id": "neutral",
+            "name": "Neutral Face",
+            "rarity": "common",
+            "description": "Keeping it cool and collected.",
+            "image": "/src/assets/circulets/emoji-pack/common/neutral.svg"
+          }
+        ],
+        "uncommon": [
+          {
+            "id": "wink",
+            "name": "Winking Face",
+            "rarity": "uncommon",
+            "description": "A playful wink for your friends!",
+            "image": "/src/assets/circulets/emoji-pack/uncommon/wink.svg"
+          },
+          {
+            "id": "surprised",
+            "name": "Surprised Face",
+            "rarity": "uncommon",
+            "description": "Wide-eyed with wonder!",
+            "image": "/src/assets/circulets/emoji-pack/uncommon/surprised.svg"
+          }
+        ],
+        "rare": [
+          {
+            "id": "cool",
+            "name": "Cool Face",
+            "rarity": "rare",
+            "description": "Too cool for school with those shades!",
+            "image": "/src/assets/circulets/emoji-pack/rare/cool.svg"
+          },
+          {
+            "id": "angry",
+            "name": "Angry Face",
+            "rarity": "rare",
+            "description": "Seeing red with fury!",
+            "image": "/src/assets/circulets/emoji-pack/rare/angry.svg"
+          }
+        ],
+        "epic": [
+          {
+            "id": "love",
+            "name": "Love Face",
+            "rarity": "epic",
+            "description": "Heart eyes for that special someone!",
+            "image": "/src/assets/circulets/emoji-pack/epic/love.svg"
+          }
+        ],
+        "legendary": [
+          {
+            "id": "rainbow",
+            "name": "Rainbow Face",
+            "rarity": "legendary",
+            "description": "A magical rainbow of emotions!",
+            "image": "/src/assets/circulets/emoji-pack/legendary/rainbow.svg"
+          }
+        ]
+      }
+    },
+    "food-pack": {
+      "name": "Food Pack",
+      "description": "Delicious circulets that look good enough to eat!",
+      "cost": 75,
+      "circulets": {
+        "common": [
+          {
+            "id": "apple",
+            "name": "Red Apple",
+            "rarity": "common",
+            "description": "An apple a day keeps the doctor away!",
+            "image": "/src/assets/circulets/food-pack/common/apple.svg"
+          },
+          {
+            "id": "banana",
+            "name": "Banana",
+            "rarity": "common",
+            "description": "Curved and yellow, packed with potassium!",
+            "image": "/src/assets/circulets/food-pack/common/banana.svg"
+          },
+          {
+            "id": "orange",
+            "name": "Orange",
+            "rarity": "common",
+            "description": "Citrusy and refreshing!",
+            "image": "/src/assets/circulets/food-pack/common/orange.svg"
+          }
+        ],
+        "uncommon": [
+          {
+            "id": "pizza",
+            "name": "Pizza Slice",
+            "rarity": "uncommon",
+            "description": "Cheesy goodness with pepperoni!",
+            "image": "/src/assets/circulets/food-pack/uncommon/pizza.svg"
+          },
+          {
+            "id": "burger",
+            "name": "Burger",
+            "rarity": "uncommon",
+            "description": "A classic burger with all the fixings!",
+            "image": "/src/assets/circulets/food-pack/uncommon/burger.svg"
+          }
+        ],
+        "rare": [
+          {
+            "id": "cake",
+            "name": "Birthday Cake",
+            "rarity": "rare",
+            "description": "Make a wish and blow out the candle!",
+            "image": "/src/assets/circulets/food-pack/rare/cake.svg"
+          },
+          {
+            "id": "icecream",
+            "name": "Ice Cream",
+            "rarity": "rare",
+            "description": "Triple scoop of frozen delight!",
+            "image": "/src/assets/circulets/food-pack/rare/icecream.svg"
+          }
+        ],
+        "epic": [
+          {
+            "id": "donut",
+            "name": "Sprinkled Donut",
+            "rarity": "epic",
+            "description": "Glazed perfection with colorful sprinkles!",
+            "image": "/src/assets/circulets/food-pack/epic/donut.svg"
+          }
+        ],
+        "legendary": [
+          {
+            "id": "golden-apple",
+            "name": "Golden Apple",
+            "rarity": "legendary",
+            "description": "A mythical fruit of pure gold!",
+            "image": "/src/assets/circulets/food-pack/legendary/golden-apple.svg"
+          }
+        ]
+      }
+    }
+  },
+  "rarityInfo": {
+    "common": {
+      "color": "#95a5a6",
+      "dropRate": 60,
+      "sellValue": 5
+    },
+    "uncommon": {
+      "color": "#3498db",
+      "dropRate": 25,
+      "sellValue": 15
+    },
+    "rare": {
+      "color": "#2ecc71",
+      "dropRate": 10,
+      "sellValue": 35
+    },
+    "epic": {
+      "color": "#9b59b6",
+      "dropRate": 4,
+      "sellValue": 75
+    },
+    "legendary": {
+      "color": "#f1c40f",
+      "dropRate": 1,
+      "sellValue": 200
+    }
+  }
+}

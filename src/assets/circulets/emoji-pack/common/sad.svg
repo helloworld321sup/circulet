@@ -1,0 +1,29 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="sadFaceGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFE55C"/>
+      <stop offset="70%" stop-color="#FFD93D"/>
+      <stop offset="100%" stop-color="#E6C200"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000030"/>
+    </filter>
+  </defs>
+  <!-- Face with gradient and shadow -->
+  <circle cx="60" cy="60" r="50" fill="url(#sadFaceGradient)" filter="url(#shadow)"/>
+  <!-- Face highlight -->
+  <ellipse cx="45" cy="40" rx="12" ry="18" fill="#FFEB3B" opacity="0.3"/>
+  <!-- Sad eyebrows -->
+  <path d="M 35 35 Q 45 40 55 35" stroke="#8B4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 65 35 Q 75 40 85 35" stroke="#8B4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Left eye with tear -->
+  <ellipse cx="45" cy="48" rx="4" ry="6" fill="#000"/>
+  <circle cx="46" cy="46" r="1" fill="#fff"/>
+  <ellipse cx="52" cy="55" rx="2" ry="8" fill="#87CEEB" opacity="0.8"/>
+  <!-- Right eye -->
+  <ellipse cx="75" cy="48" rx="4" ry="6" fill="#000"/>
+  <circle cx="76" cy="46" r="1" fill="#fff"/>
+  <!-- Sad mouth -->
+  <path d="M 40 80 Q 60 65 80 80" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 42 78 Q 60 67 78 78" stroke="#A0522D" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

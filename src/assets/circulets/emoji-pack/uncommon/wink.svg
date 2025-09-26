@@ -1,0 +1,32 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="winkFaceGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFE55C"/>
+      <stop offset="70%" stop-color="#FFD93D"/>
+      <stop offset="100%" stop-color="#F1C40F"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000030"/>
+    </filter>
+  </defs>
+  <!-- Face with gradient and shadow -->
+  <circle cx="60" cy="60" r="50" fill="url(#winkFaceGradient)" filter="url(#shadow)"/>
+  <!-- Face highlight -->
+  <ellipse cx="45" cy="40" rx="12" ry="18" fill="#FFEB3B" opacity="0.4"/>
+  <!-- Winking eye (left) -->
+  <path d="M 35 40 Q 45 50 55 40" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 37 42 Q 45 48 53 42" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Right eye -->
+  <ellipse cx="75" cy="45" rx="4" ry="6" fill="#000"/>
+  <circle cx="76" cy="43" r="1" fill="#fff"/>
+  <!-- Eyebrow over right eye -->
+  <path d="M 68 35 Q 75 32 82 35" stroke="#B8860B" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Cheek -->
+  <circle cx="90" cy="65" r="6" fill="#FFB6C1" opacity="0.6"/>
+  <!-- Playful smile -->
+  <path d="M 40 70 Q 60 90 80 70" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 42 72 Q 60 88 78 72" stroke="#A0522D" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Teeth -->
+  <rect x="55" y="76" width="3" height="5" fill="#fff" rx="1"/>
+  <rect x="62" y="77" width="3" height="5" fill="#fff" rx="1"/>
+</svg>
