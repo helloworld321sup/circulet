@@ -2,7 +2,10 @@
 let gameState = {
     tokens: 50, // Start with some tokens for testing
     circulets: [],
-    ownedCirculets: new Set()
+    ownedCirculets: new Set(),
+    currentPack: null,
+    currentCirculet: null,
+    packOpened: false
 };
 
 // Circulets data
@@ -85,85 +88,112 @@ function getRandomCirculet(packType) {
     return { ...randomCirculet, rarity: 'common' };
 }
 
-// Create confetti
-function createConfetti(rarity, circuletElement) {
+// Create enhanced confetti like Blooket/Trianglet
+function createConfetti(rarity) {
     const colors = {
-        'uncommon': '#2ecc71',
-        'rare': '#3498db', 
-        'epic': '#9b59b6',
-        'legendary': '#f1c40f',
-        'chroma': '#74b9ff'
+        'uncommon': ['#2ecc71', '#27ae60', '#16a085'],
+        'rare': ['#3498db', '#2980b9', '#1abc9c'], 
+        'epic': ['#9b59b6', '#8e44ad', '#e74c3c'],
+        'legendary': ['#f1c40f', '#f39c12', '#e67e22'],
+        'chroma': ['#74b9ff', '#0984e3', '#6c5ce7']
     };
     
-    const confettiCount = rarity === 'epic' ? 15 : 20;
-    const color = colors[rarity] || '#95a5a6';
+    const shapes = ['square', 'circle', 'triangle', 'rectangle'];
+    const confettiColors = colors[rarity] || ['#95a5a6'];
+    const confettiCount = rarity === 'legendary' ? 80 : rarity === 'epic' ? 60 : 40;
     
     for (let i = 0; i < confettiCount; i++) {
         const confetti = document.createElement('div');
-        confetti.className = 'confetti';
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        
+        confetti.className = `confetti confetti-${shape}`;
         confetti.style.backgroundColor = color;
-        confetti.style.position = 'absolute';
-        confetti.style.zIndex = '1001';
+        confetti.style.color = color; // For triangles
+        confetti.style.position = 'fixed';
+        confetti.style.zIndex = '1002';
         
-        const rect = circuletElement.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
+        // Start from different positions based on rarity
         let startX, startY, directionX, directionY;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
         
         switch (rarity) {
             case 'uncommon': // Green from top
-                startX = centerX + (Math.random() - 0.5) * 100;
-                startY = centerY - 100;
-                directionX = (Math.random() - 0.5) * 4;
-                directionY = Math.random() * 3 + 2;
+                startX = centerX + (Math.random() - 0.5) * 300;
+                startY = -20;
+                directionX = (Math.random() - 0.5) * 6;
+                directionY = Math.random() * 4 + 3;
                 break;
             case 'rare': // Blue from bottom corners
                 const isLeft = Math.random() < 0.5;
-                startX = isLeft ? centerX - 80 : centerX + 80;
-                startY = centerY + 80;
-                directionX = isLeft ? Math.random() * 3 + 1 : -(Math.random() * 3 + 1);
-                directionY = -(Math.random() * 4 + 3);
+                startX = isLeft ? 0 : window.innerWidth;
+                startY = window.innerHeight;
+                directionX = isLeft ? Math.random() * 6 + 2 : -(Math.random() * 6 + 2);
+                directionY = -(Math.random() * 8 + 5);
                 break;
-            case 'epic': // Purple from left and right sides with gravity
+            case 'epic': // Purple from left and right sides
                 const isLeftSide = Math.random() < 0.5;
-                startX = isLeftSide ? centerX - 100 : centerX + 100;
-                startY = centerY + (Math.random() - 0.5) * 60;
-                directionX = isLeftSide ? Math.random() * 4 + 2 : -(Math.random() * 4 + 2);
-                directionY = (Math.random() - 0.5) * 4;
+                startX = isLeftSide ? -20 : window.innerWidth + 20;
+                startY = centerY + (Math.random() - 0.5) * 200;
+                directionX = isLeftSide ? Math.random() * 8 + 4 : -(Math.random() * 8 + 4);
+                directionY = (Math.random() - 0.5) * 6;
                 break;
-            case 'legendary': // Gold from top
-                startX = centerX + (Math.random() - 0.5) * 120;
-                startY = centerY - 120;
-                directionX = (Math.random() - 0.5) * 3;
-                directionY = Math.random() * 4 + 3;
+            case 'legendary': // Gold from all edges
+                const edge = Math.floor(Math.random() * 4);
+                switch (edge) {
+                    case 0: // Top
+                        startX = Math.random() * window.innerWidth;
+                        startY = -20;
+                        directionX = (Math.random() - 0.5) * 4;
+                        directionY = Math.random() * 6 + 4;
+                        break;
+                    case 1: // Right
+                        startX = window.innerWidth + 20;
+                        startY = Math.random() * window.innerHeight;
+                        directionX = -(Math.random() * 6 + 4);
+                        directionY = (Math.random() - 0.5) * 4;
+                        break;
+                    case 2: // Bottom
+                        startX = Math.random() * window.innerWidth;
+                        startY = window.innerHeight + 20;
+                        directionX = (Math.random() - 0.5) * 4;
+                        directionY = -(Math.random() * 6 + 4);
+                        break;
+                    case 3: // Left
+                        startX = -20;
+                        startY = Math.random() * window.innerHeight;
+                        directionX = Math.random() * 6 + 4;
+                        directionY = (Math.random() - 0.5) * 4;
+                        break;
+                }
                 break;
             case 'chroma': // Light blue from all corners
                 const corner = Math.floor(Math.random() * 4);
                 switch (corner) {
                     case 0: // Top-left
-                        startX = centerX - 100;
-                        startY = centerY - 100;
-                        directionX = Math.random() * 3 + 1;
-                        directionY = Math.random() * 3 + 1;
+                        startX = 0;
+                        startY = 0;
+                        directionX = Math.random() * 8 + 3;
+                        directionY = Math.random() * 8 + 3;
                         break;
                     case 1: // Top-right
-                        startX = centerX + 100;
-                        startY = centerY - 100;
-                        directionX = -(Math.random() * 3 + 1);
-                        directionY = Math.random() * 3 + 1;
+                        startX = window.innerWidth;
+                        startY = 0;
+                        directionX = -(Math.random() * 8 + 3);
+                        directionY = Math.random() * 8 + 3;
                         break;
                     case 2: // Bottom-left
-                        startX = centerX - 100;
-                        startY = centerY + 100;
-                        directionX = Math.random() * 3 + 1;
-                        directionY = -(Math.random() * 3 + 1);
+                        startX = 0;
+                        startY = window.innerHeight;
+                        directionX = Math.random() * 8 + 3;
+                        directionY = -(Math.random() * 8 + 3);
                         break;
                     case 3: // Bottom-right
-                        startX = centerX + 100;
-                        startY = centerY + 100;
-                        directionX = -(Math.random() * 3 + 1);
-                        directionY = -(Math.random() * 3 + 1);
+                        startX = window.innerWidth;
+                        startY = window.innerHeight;
+                        directionX = -(Math.random() * 8 + 3);
+                        directionY = -(Math.random() * 8 + 3);
                         break;
                 }
                 break;
@@ -174,36 +204,42 @@ function createConfetti(rarity, circuletElement) {
         
         document.body.appendChild(confetti);
         
-        // Animate confetti
+        // Animate confetti with physics
         let x = startX;
         let y = startY;
         let velX = directionX;
         let velY = directionY;
-        let gravity = rarity === 'epic' ? 0.1 : 0.05;
-        let life = 100;
+        let gravity = 0.15;
+        let friction = 0.99;
+        let rotation = Math.random() * 360;
+        let rotationSpeed = (Math.random() - 0.5) * 20;
+        let life = 150;
         
         function animateConfetti() {
             x += velX;
             y += velY;
             velY += gravity;
+            velX *= friction;
+            rotation += rotationSpeed;
             life--;
             
             confetti.style.left = x + 'px';
             confetti.style.top = y + 'px';
-            confetti.style.opacity = life / 100;
+            confetti.style.transform = `rotate(${rotation}deg)`;
+            confetti.style.opacity = Math.max(0, life / 150);
             
-            if (life > 0) {
+            if (life > 0 && y < window.innerHeight + 100) {
                 requestAnimationFrame(animateConfetti);
             } else {
                 confetti.remove();
             }
         }
         
-        setTimeout(() => animateConfetti(), i * 50);
+        setTimeout(() => animateConfetti(), i * 20);
     }
 }
 
-// Open pack with dramatic animation sequence
+// Open pack - show full screen gradient
 function openPack(packType) {
     if (gameState.tokens < 25) {
         alert('Not enough tokens!');
@@ -213,85 +249,71 @@ function openPack(packType) {
     gameState.tokens -= 25;
     updateUI();
     
-    const circulet = getRandomCirculet(packType);
-    gameState.ownedCirculets.add(circulet.id);
+    gameState.currentPack = packType;
+    gameState.currentCirculet = getRandomCirculet(packType);
+    gameState.ownedCirculets.add(gameState.currentCirculet.id);
+    gameState.packOpened = false;
     
     // Set up pack images
     const packImageSrc = `src/assets/packs/${packType}-pack.svg`;
-    document.getElementById('pack-top-image').src = packImageSrc;
-    document.getElementById('pack-bottom-image').src = packImageSrc;
+    document.getElementById('capsule-top-image').src = packImageSrc;
+    document.getElementById('capsule-bottom-image').src = packImageSrc;
     
     // Set up circulet
-    document.getElementById('circulet-image').src = circulet.image;
-    document.getElementById('circulet-name').textContent = circulet.name;
-    document.getElementById('circulet-rarity').textContent = circulet.rarity.charAt(0).toUpperCase() + circulet.rarity.slice(1);
-    document.getElementById('circulet-rarity').className = `circulet-rarity rarity-${circulet.rarity}`;
+    document.getElementById('circulet-image').src = gameState.currentCirculet.image;
     
-    // Show modal and start animation sequence
-    const modal = document.getElementById('reveal-modal');
-    const packCapsule = document.getElementById('pack-capsule');
-    const openingText = document.getElementById('opening-text');
-    const circuletReveal = document.getElementById('circulet-reveal');
-    const circuletInfo = document.getElementById('circulet-info');
+    // Show full screen with appropriate gradient
+    const screen = document.getElementById('pack-opening-screen');
+    screen.className = `pack-opening-screen show ${packType}-pack`;
     
-    // Reset all elements
-    packCapsule.className = 'pack-capsule';
-    openingText.className = 'opening-text';
-    circuletReveal.className = 'circulet-reveal';
-    circuletInfo.style.opacity = '0';
-    
-    // Show modal
-    modal.classList.add('show');
-    
-    // Animation sequence
-    setTimeout(() => {
-        // Show opening text
-        openingText.classList.add('show');
-    }, 200);
-    
-    setTimeout(() => {
-        // Start glowing
-        packCapsule.classList.add('glowing');
-    }, 800);
-    
-    setTimeout(() => {
-        // Start shaking
-        packCapsule.classList.add('shaking');
-    }, 1500);
-    
-    setTimeout(() => {
-        // Change text to "Opening..."
-        openingText.textContent = 'Opening...';
-    }, 2000);
-    
-    setTimeout(() => {
-        // Start opening animation
-        packCapsule.classList.remove('glowing', 'shaking');
-        packCapsule.classList.add('opening');
-    }, 2500);
-    
-    setTimeout(() => {
-        // Reveal circulet
-        circuletReveal.classList.add('show');
-        openingText.style.opacity = '0';
-    }, 3200);
-    
-    setTimeout(() => {
-        // Create confetti
-        if (circulet.rarity !== 'common') {
-            createConfetti(circulet.rarity, circuletReveal);
-        }
-    }, 3500);
-    
-    setTimeout(() => {
-        // Show circulet info
-        circuletInfo.style.opacity = '1';
-    }, 4000);
+    // Reset capsule state
+    const capsule = document.getElementById('single-pack-capsule');
+    const reveal = document.getElementById('circulet-reveal');
+    capsule.className = 'single-pack-capsule';
+    reveal.className = 'circulet-reveal';
 }
 
-// Close modal
-function closeModal() {
-    document.getElementById('reveal-modal').classList.remove('show');
+// Open capsule when clicked
+function openCapsule() {
+    if (gameState.packOpened) return;
+    
+    gameState.packOpened = true;
+    
+    const capsule = document.getElementById('single-pack-capsule');
+    const reveal = document.getElementById('circulet-reveal');
+    
+    // Start opening animation
+    capsule.classList.add('opening');
+    
+    setTimeout(() => {
+        // Fade out capsule
+        capsule.classList.add('fading');
+    }, 1000);
+    
+    setTimeout(() => {
+        // Show circulet
+        reveal.classList.add('show');
+        
+        // Create confetti if not common
+        if (gameState.currentCirculet.rarity !== 'common') {
+            createConfetti(gameState.currentCirculet.rarity);
+        }
+    }, 1500);
+}
+
+// Return to packs page when circulet is clicked
+function returnToPacks() {
+    if (!gameState.packOpened) return;
+    
+    const screen = document.getElementById('pack-opening-screen');
+    screen.classList.remove('show');
+    
+    // Reset state
+    gameState.currentPack = null;
+    gameState.currentCirculet = null;
+    gameState.packOpened = false;
+    
+    updateUI();
 }
 
 // Initialize

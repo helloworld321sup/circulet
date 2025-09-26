@@ -205,134 +205,98 @@ body {
     cursor: not-allowed;
 }
 
-/* Pack Opening Modal Styles */
-.modal {
+/* Pack Opening Full Screen */
+.pack-opening-screen {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.modal.show {
+.pack-opening-screen.show {
     display: flex;
-    animation: modalFadeIn 0.3s ease-out;
 }
 
-@keyframes modalFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.pack-opening-screen.emoji-pack {
+    background: linear-gradient(135deg, #FFD700 0%, #FFC107 50%, #FF8F00 100%);
 }
 
-.modal-content {
-    background: transparent;
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
-    position: relative;
+.pack-opening-screen.food-pack {
+    background: linear-gradient(135deg, #4ADE80 0%, #22C55E 50%, #16A34A 100%);
 }
 
-/* Pack Opening Animation */
-.pack-opening-container {
-    position: relative;
+/* Single Pack Capsule */
+.single-pack-capsule {
     width: 200px;
     height: 500px;
-    margin: 0 auto;
-}
-
-.pack-capsule {
-    width: 120px;
-    height: 300px;
-    margin: 0 auto;
     position: relative;
+    cursor: pointer;
     transform-style: preserve-3d;
+    transition: transform 0.3s ease;
 }
 
-.pack-capsule.shaking {
-    animation: packShake 0.5s ease-in-out 3;
+.single-pack-capsule:hover {
+    transform: scale(1.05);
 }
 
-.pack-capsule.opening {
-    animation: packOpen 1.5s ease-out forwards;
+.single-pack-capsule.opening {
+    cursor: default;
 }
 
-@keyframes packShake {
-    0%, 100% { transform: translateX(0) rotateY(0deg); }
-    25% { transform: translateX(-3px) rotateY(-2deg); }
-    75% { transform: translateX(3px) rotateY(2deg); }
-}
-
-@keyframes packOpen {
-    0% { transform: rotateY(0deg); }
-    30% { transform: rotateY(15deg) scale(1.1); }
-    60% { transform: rotateY(-10deg) scale(1.05); }
-    100% { transform: rotateY(0deg) scale(1) translateY(-50px); opacity: 0.3; }
-}
-
-.pack-top, .pack-bottom {
+.capsule-top {
     position: absolute;
-    width: 120px;
-    height: 150px;
+    top: 0;
+    width: 200px;
+    height: 250px;
+    transform-origin: bottom center;
     transition: transform 1.5s ease-out;
 }
 
-.pack-top {
-    top: 0;
-    transform-origin: bottom center;
-}
-
-.pack-bottom {
+.capsule-bottom {
+    position: absolute;
     bottom: 0;
-    transform-origin: top center;
+    width: 200px;
+    height: 250px;
 }
 
-.pack-capsule.opening .pack-top {
-    transform: translateY(-80px) rotateX(-25deg);
-}
-
-.pack-capsule.opening .pack-bottom {
-    transform: translateY(80px) rotateX(25deg);
+.single-pack-capsule.opening .capsule-top {
+    transform: rotateX(-90deg) translateZ(125px);
 }
 
 /* Circulet Reveal */
 .circulet-reveal {
-    width: 150px;
-    height: 150px;
-    margin: 20px auto;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     z-index: 10;
 }
 
 .circulet-reveal.show {
-    animation: dramaticReveal 1.2s ease-out forwards;
+    animation: circuletReveal 1s ease-out forwards;
 }
 
-@keyframes dramaticReveal {
+@keyframes circuletReveal {
     0% { 
         transform: translate(-50%, -50%) scale(0) rotateY(180deg); 
         opacity: 0; 
     }
-    40% { 
-        transform: translate(-50%, -50%) scale(0.3) rotateY(90deg); 
-        opacity: 0.5; 
-    }
-    70% { 
-        transform: translate(-50%, -50%) scale(1.3) rotateY(0deg); 
-        opacity: 1; 
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2) rotateY(90deg); 
+        opacity: 0.8; 
     }
     100% { 
         transform: translate(-50%, -50%) scale(1) rotateY(0deg); 
@@ -340,77 +304,45 @@ body {
     }
 }
 
-/* Glow effects */
-.pack-capsule.glowing {
-    animation: packGlow 0.8s ease-in-out infinite alternate;
+.single-pack-capsule.fading {
+    animation: capsuleFadeOut 0.8s ease-out forwards;
 }
 
-@keyframes packGlow {
-    from { filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.5)); }
-    to { filter: drop-shadow(0 0 25px rgba(255, 193, 7, 0.8)); }
+@keyframes capsuleFadeOut {
+    to { opacity: 0; }
 }
 
-/* Opening text */
-.opening-text {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffc107;
-    opacity: 0;
-}
-
-.opening-text.show {
-    animation: textFadeIn 0.5s ease-out forwards;
-}
-
-@keyframes textFadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-.circulet-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 20px 0 10px;
-}
-
-.circulet-rarity {
-    font-size: 1rem;
-    padding: 4px 12px;
-    border-radius: 12px;
-    display: inline-block;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.rarity-common { background: rgba(149, 165, 166, 0.3); color: #95a5a6; }
-.rarity-uncommon { background: rgba(52, 152, 219, 0.3); color: #3498db; }
-.rarity-rare { background: rgba(46, 204, 113, 0.3); color: #2ecc71; }
-.rarity-epic { background: rgba(155, 89, 182, 0.3); color: #9b59b6; }
-.rarity-legendary { background: rgba(241, 196, 15, 0.3); color: #f1c40f; }
-.rarity-chroma { background: rgba(116, 185, 255, 0.3); color: #74b9ff; }
-
-.close-modal {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    padding: 8px 16px;
-    color: white;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-/* Confetti Styles */
+/* Enhanced Confetti Styles */
 .confetti {
     position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
     pointer-events: none;
     z-index: 1001;
+}
+
+.confetti-square {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.confetti-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.confetti-triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 12px 6px;
+    border-color: transparent transparent currentColor transparent;
+}
+
+.confetti-rectangle {
+    width: 16px;
+    height: 8px;
+    border-radius: 1px;
 }
 
 /* Hidden pages */

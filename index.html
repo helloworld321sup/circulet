@@ -101,34 +101,21 @@
         </div>
     </div>
     
-    <!-- Modal for Pack Opening -->
-    <div id="reveal-modal" class="modal">
-        <div class="modal-content">
-            <div class="opening-text" id="opening-text">Opening Pack...</div>
-            
-            <div class="pack-opening-container">
-                <!-- Pack Capsule Animation -->
-                <div id="pack-capsule" class="pack-capsule">
-                    <div class="pack-top" id="pack-top">
-                        <img id="pack-top-image" src="" alt="" style="width: 100%; height: 100%;">
-                    </div>
-                    <div class="pack-bottom" id="pack-bottom">
-                        <img id="pack-bottom-image" src="" alt="" style="width: 100%; height: 100%;">
-                    </div>
-                </div>
-                
-                <!-- Circulet Reveal -->
-                <div id="circulet-reveal" class="circulet-reveal">
-                    <img id="circulet-image" src="" alt="" style="width: 100%; height: 100%; border-radius: 50%;">
-                </div>
+    <!-- Pack Opening Full Screen -->
+    <div id="pack-opening-screen" class="pack-opening-screen">
+        <!-- Single Pack Capsule -->
+        <div id="single-pack-capsule" class="single-pack-capsule" onclick="openCapsule()">
+            <div class="capsule-top" id="capsule-top">
+                <img id="capsule-top-image" src="" alt="" style="width: 100%; height: 100%;">
             </div>
-            
-            <!-- Circulet Info (shown after reveal) -->
-            <div id="circulet-info" style="opacity: 0; transition: opacity 0.5s ease;">
-                <div id="circulet-name" class="circulet-name"></div>
-                <div id="circulet-rarity" class="circulet-rarity"></div>
-                <button class="close-modal" onclick="closeModal()">Awesome!</button>
+            <div class="capsule-bottom" id="capsule-bottom">
+                <img id="capsule-bottom-image" src="" alt="" style="width: 100%; height: 100%;">
             </div>
+        </div>
+        
+        <!-- Circulet Reveal -->
+        <div id="circulet-reveal" class="circulet-reveal" onclick="returnToPacks()">
+            <img id="circulet-image" src="" alt="" style="width: 100%; height: 100%; border-radius: 50%;">
         </div>
     </div>
 
